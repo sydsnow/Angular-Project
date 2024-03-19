@@ -1,4 +1,6 @@
-[
+import { Tag } from '../models/tag';
+
+export const TAGS: Tag[] = [
     {"id": 1, "name": "javascript", "slug": "javascript"},
     {"id": 2, "name": "css", "slug": "css"},
     {"id": 3, "name": "scss", "slug": "scss"},

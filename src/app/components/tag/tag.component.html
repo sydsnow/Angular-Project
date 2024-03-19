@@ -1,0 +1,8 @@
+<div class="tags">
+    <div *ngFor="let tag of tags" 
+         class="btn btn-outline-primary" 
+         id="filter--tags-buttons"
+         (click)="setTagFilter(tag)">
+        {{ tag.name }}
+    </div>
+</div>

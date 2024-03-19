@@ -1,88 +1,79 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import CATEGORIES from '../data/categories.json';
-import PROJECTS from '../data/projects.json';
-import TAGS from '../data/tags.json';
+
+import { Category } from './models/category';
+import { Project } from './models/project';
+import { Tag } from './models/tag';
+
+import { CategoryComponent } from './components/category/category.component';
+import { TagComponent } from './components/tag/tag.component';
+import { ProjectComponent } from './components/project/project.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
+  imports: [
+    RouterOutlet, 
+    CommonModule,
+    CategoryComponent,
+    TagComponent,
+    ProjectComponent
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
   title = 'Angular - Assignment 1';
-  date: string | null = null;
-  author: string | null = null;
-  categories: Category[] | undefined;
-  projects: Project[] | undefined;
-  tags: Tag[] | undefined;
+  date = new Date();
+  author = "Sydnee Snowball";
+
+  //categories: Category[] | undefined;
+  //projects: Project[] | undefined;
+  //tags: Tag[] | undefined;
+
   categoryFilter: Category | undefined;
-  filteredProjects: Project[] | undefined;
+  tagFilter: Tag | undefined;
+  //filteredProjects: Project[] | undefined;
 
-  setCategoryFilter(category: Category): void {
-    if (this.categoryFilter === category) {
-      this.categoryFilter = undefined;
-    } else {
-      this.categoryFilter = category;
-    }
-    this.applyFilters();
+  setCategoryFilter(category: Category) {
+    this.categoryFilter = category;
   }
 
-  isCategoryFilterActive(category: Category): boolean {
-    return this.categoryFilter === category;
+  setTagFilter(tag: Tag) {
+    this.tagFilter = tag;
   }
 
-  clearFilters(): void {
+  clearFilters() {
     this.categoryFilter = undefined;
-    this.applyFilters();
+    this.tagFilter = undefined;
   }
 
-  applyFilters(): void {
-    // Apply filters to projects based on the category filter
-    this.filteredProjects = this.projects?.filter(project => {
-      const categoryFilterMatch = !this.categoryFilter || project.category?.id === this.categoryFilter.id;
-      return categoryFilterMatch;
-    });
-  }
+  // setCategoryFilter(category: Category): void {
+  //   if (this.categoryFilter === category) {
+  //     this.categoryFilter = undefined;
+  //   } else {
+  //     this.categoryFilter = category;
+  //   }
+  //   this.applyFilters();
+  // }
 
-  constructor() {
-    this.author = 'Sydnee & Eunice';
-    this.date = '2021-09-20';
-    this.categories = CATEGORIES;
-    this.projects = PROJECTS;
-    this.filteredProjects = this.projects;
-    this.tags = TAGS;
-  }
-}
+  // isCategoryFilterActive(category: Category): boolean {
+  //   return this.categoryFilter === category;
+  // }
 
-export class Category {
-  id!: number;
-  name!: string;
-  slug!: string;
-}
+  // clearFilters(): void {
+  //   this.categoryFilter = undefined;
+  //   this.applyFilters();
+  // }
 
-export class Tag {
-  id!: number;
-  name!: string;
-  slug!: string;
-}
+  // applyFilters(): void {
+  //   // Apply filters to projects based on the category filter
+  //   this.filteredProjects = this.projects?.filter(project => {
+  //     const categoryFilterMatch = !this.categoryFilter || project.category?.id === this.categoryFilter.id;
+  //     return categoryFilterMatch;
+  //   });
+  //}
 
-export class Project {
-  'id': number;
-  'title': string;
-  'slug': string;
-  'excerpt': string;
-  'body': string;
-  'url': string | null;
-  'published_date': string | null;
-  'image': string | null;
-  'thumb': string | null;
-  'category_id': number | null;
-  'created_at': string;
-  'updated_at': string;
-  'category': Category | null;
-  'tags': Tag[];
 }

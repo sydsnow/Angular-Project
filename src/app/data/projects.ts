@@ -1,4 +1,6 @@
-[
+import { Project } from "../models/project";
+
+export const PROJECTS: Project[] = [
   {
     "id": 1,
     "title": "Piece News",
@@ -36,7 +38,8 @@
     "category":   { "id": 2, "slug": "front-end", "name": "Front End" },
     "tags": [
       {"id": 7, "name": ".NET", "slug": "dot-net"},
-      {"id": 2, "name": "css", "slug": "css"}
+      {"id": 2, "name": "css", "slug": "css"},
+      {"id": 1, "name": "javascript", "slug": "javascript"}
     ]
   },
   {
@@ -88,7 +91,7 @@
     "category_id": null,
     "created_at": "2023-02-23T22:31:23.000000Z",
     "updated_at": "2023-02-23T22:31:23.000000Z",
-    "category": {"id": 4, "name": "react", "slug": "react"},
+    "category": { "id": 2, "slug": "front-end", "name": "Front End" },
     "tags": [{"id": 1, "name": "javascript", "slug": "javascript"},
             {"id": 4, "name": "react", "slug": "react"},
             {"id": 2, "name": "css", "slug": "css"},
