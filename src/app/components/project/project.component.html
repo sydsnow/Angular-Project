@@ -1,5 +1,9 @@
 <section class="projects-container">
-  <div *ngFor="let project of projects" class="projects" [class.hidden]="isProjectHidden(project)"
+  <div 
+    *ngFor="let project of projects" 
+    class="projects" 
+    [class.hidden]="isProjectHidden(project)" 
+    (click)="setSelectedProject(project)"
   >
       <h3>{{ project.title }}</h3>
       <p>{{ project.excerpt }}</p>

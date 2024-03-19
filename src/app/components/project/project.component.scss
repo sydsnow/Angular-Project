@@ -1,5 +1,19 @@
 .projects {
+    padding: 10px;
     &.hidden {
         display: none;
+    }
+}
+@media (min-width: 1024px) {
+    .projects-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width: 1280px) {
+    .projects-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 10px;
     }
 }
