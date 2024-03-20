@@ -1,0 +1,8 @@
+<div class="categories">
+    <div *ngFor="let category of categories"
+        (click)="setCategoryFilter(category)"
+        class="btn btn-outline-primary"
+        id="filter-buttons">
+        {{ category.name }}
+    </div>
+</div>

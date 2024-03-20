@@ -1,7 +1,7 @@
 import { Category } from './category';
 import { Tag } from './tag';
 
-interface Project {
+export interface Project {
     'id': number;
   'title': string;
   'slug': string;

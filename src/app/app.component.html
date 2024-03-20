@@ -8,43 +8,33 @@
         <div class="filters-section">
           <div class="categories">
             Categories:
-            <div *ngFor="let category of categories"
-              [class.active]="isCategoryFilterActive(category)"
-              (click)="setCategoryFilter(category)"
-              class="btn btn-outline-primary"
-              id="filter-buttons">
-              {{ category.name }}
-            </div>
-            <br>Tags:
-            <div *ngFor="let tag of tags" class="btn btn-outline-primary" id="filter--tags-buttons">
-              {{ tag.name }}
-            </div>
+            <app-category
+              [categoryFilter]="categoryFilter"
+              (newCategoryFilterEvent)="setCategoryFilter($event)"
+            ></app-category>
           </div>
-          <div *ngIf="categoryFilter">
-            <!-- {{ categoryFilter.name }} -->
+          <div class="tags">
+            Tags:
+            <app-tag
+              [tagFilter]="tagFilter"
+              (newTagFilterEvent)="setTagFilter($event)"
+            ></app-tag>
+          </div>
+          <div *ngIf="categoryFilter || tagFilter">
+            {{ categoryFilter?.name || tagFilter?.name }}:
             <button (click)="clearFilters()" class="btn btn-danger" id="clear-button">Clear</button>
           </div>
         </div>
       </section>
       <section class="projects-container">
-        <div *ngFor="let project of filteredProjects" class="projects">
-          <h3>{{ project.title }}</h3>
-          <p>{{ project.excerpt }}</p>
-          
-          <!-- Make category clickable -->
-          <p *ngIf="project.category" id="categories" (click)="setCategoryFilter(project.category)">
-            Category: {{ project.category.name }}
-          </p>
-          
-          <p *ngIf="project.tags && project.tags.length > 0" id="tags">
-            Tags:
-            <span *ngFor="let tag of project.tags; let last = last">
-              {{ tag.name }}{{ !last ? ', ' : '' }}
-            </span>
-          </p>
-        </div>
+        <app-project
+          [categoryFilter]="categoryFilter"
+          (newCategoryFilterEvent)="setCategoryFilter($event)"
+          [tagFilter]="tagFilter"
+          (newTagFilterEvent)="setTagFilter($event)"
+        ></app-project>
       </section>
     </main>
-    <footer>&copy; {{ author }} - {{ date }}</footer>
+    <footer>&copy; {{ author }} - {{ date.getFullYear() }}</footer>
   </div>
 </body>
