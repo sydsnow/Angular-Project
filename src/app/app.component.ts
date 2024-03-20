@@ -9,6 +9,7 @@ import { Tag } from './models/tag';
 import { CategoryComponent } from './components/category/category.component';
 import { TagComponent } from './components/tag/tag.component';
 import { ProjectComponent } from './components/project/project.component';
+import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,8 @@ import { ProjectComponent } from './components/project/project.component';
     CommonModule,
     CategoryComponent,
     TagComponent,
-    ProjectComponent
+    ProjectComponent,
+    ProjectDetailComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
@@ -29,13 +31,8 @@ export class AppComponent {
   date = new Date();
   author = "Sydnee Snowball";
 
-  //categories: Category[] | undefined;
-  //projects: Project[] | undefined;
-  //tags: Tag[] | undefined;
-
   categoryFilter: Category | undefined;
   tagFilter: Tag | undefined;
-  //filteredProjects: Project[] | undefined;
 
   setCategoryFilter(category: Category) {
     this.categoryFilter = category;
@@ -50,30 +47,12 @@ export class AppComponent {
     this.tagFilter = undefined;
   }
 
-  // setCategoryFilter(category: Category): void {
-  //   if (this.categoryFilter === category) {
-  //     this.categoryFilter = undefined;
-  //   } else {
-  //     this.categoryFilter = category;
-  //   }
-  //   this.applyFilters();
-  // }
+  selectedProject?: Project;
 
-  // isCategoryFilterActive(category: Category): boolean {
-  //   return this.categoryFilter === category;
-  // }
-
-  // clearFilters(): void {
-  //   this.categoryFilter = undefined;
-  //   this.applyFilters();
-  // }
-
-  // applyFilters(): void {
-  //   // Apply filters to projects based on the category filter
-  //   this.filteredProjects = this.projects?.filter(project => {
-  //     const categoryFilterMatch = !this.categoryFilter || project.category?.id === this.categoryFilter.id;
-  //     return categoryFilterMatch;
-  //   });
-  //}
-
+  setSelectedProject (project: Project) {
+    this.selectedProject = project;
+  }
+  clearSelectedProject() {
+    this.selectedProject = undefined;
+  }
 }

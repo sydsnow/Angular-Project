@@ -26,14 +26,24 @@
           </div>
         </div>
       </section>
-      <section class="projects-container">
+      <router-outlet></router-outlet>
+      <!-- <section class="projects-container" *ngIf="!selectedProject">
         <app-project
           [categoryFilter]="categoryFilter"
           (newCategoryFilterEvent)="setCategoryFilter($event)"
           [tagFilter]="tagFilter"
           (newTagFilterEvent)="setTagFilter($event)"
+          (newSelectedProjectEvent)="setSelectedProject($event)"
         ></app-project>
       </section>
+      <section class="project-detail-container" *ngIf="selectedProject">
+        <button (click)="clearSelectedProject()">
+          Back to list
+        </button>
+        <app-project-detail
+          [project]="selectedProject"
+        ></app-project-detail>
+      </section> -->
     </main>
     <footer>&copy; {{ author }} - {{ date.getFullYear() }}</footer>
   </div>
