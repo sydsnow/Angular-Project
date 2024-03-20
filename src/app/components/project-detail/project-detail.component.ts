@@ -1,7 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { Project } from '../../models/project';
+import { ProjectService } from '../../services/project/project.service';
 
 @Component({
   selector: 'app-project-detail',
@@ -10,6 +13,25 @@ import { Project } from '../../models/project';
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss'
 })
-export class ProjectDetailComponent {
-  @Input() project? : Project;
+export class ProjectDetailComponent implements OnInit{
+  constructor(
+    private route: ActivatedRoute,
+    private projectService: ProjectService,
+    private location: Location
+  ) {}
+
+  project? : Project;
+
+  getProject(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.projectService.getProject(id).subscribe((data) => (this.project = data));
+  }
+
+  ngOnInit(): void {
+    this.getProject();
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }

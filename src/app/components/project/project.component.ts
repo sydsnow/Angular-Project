@@ -1,27 +1,52 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 import { Project } from '../../models/project';
 import { PROJECTS } from '../../data/projects';
 import { ProjectService } from '../../services/project/project.service';
+import { ProjectDetailComponent } from '../project-detail/project-detail.component';
 import { Tag } from '../../models/tag';
 import { Category } from '../../models/category';
 
 @Component({
   selector: 'app-project',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    ProjectDetailComponent
+  ],
   templateUrl: './project.component.html',
   styleUrl: './project.component.scss'
 })
-export class ProjectComponent {
-  constructor(private projectService: ProjectService) { }
+export class ProjectComponent implements OnInit{
+  constructor(
+    private projectService: ProjectService,
+    private route: ActivatedRoute
+   ) { }
 
   projects: Project[] = [];
   getProjects(): void {
-    this.projects = this.projectService.getProjects();
+    this.projectService.getProjects().subscribe((data) => (this.projects = data));
   }
+
+  getProjectsByCategory(): void {
+    const categorySlug = String(this.route.snapshot.paramMap.get('slug'));
+    console.log(categorySlug);
+    this.projectService.getProjectsByCategory(categorySlug).subscribe((data) => (this.projects = data));
+  }
+
   ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      console.log(params);
+      const segment: string = this.route.snapshot.url[1]?.path;
+      console.log(segment);
+      if (segment === 'categories') {
+        this.getProjectsByCategory();
+      } else {
+        this.getProjects();
+      }
+    })
     this.getProjects();
   }
   
@@ -31,7 +56,9 @@ export class ProjectComponent {
   @Input() tagFilter: Tag | undefined;
   @Output() newTagFilterEvent = new EventEmitter<Tag>();
 
-  @Input() selectedProject: Project | undefined;
+  selectedProject?: Project;
+
+  //@Input() selectedProject: Project | undefined;
   @Output() newSelectedProjectEvent = new EventEmitter<Project>();
 
   setSelectedProject(project: Project): void {
@@ -54,7 +81,7 @@ export class ProjectComponent {
   }
 
   isProjectHidden(project: any): boolean {
-    if (this.categoryFilter && project.category && project.category.id !== this.categoryFilter.id) {
+    if (this.categoryFilter && project.category && project.category.slug !== this.categoryFilter.slug) {
         return true;
     }
     if (this.tagFilter && project.tags) {
