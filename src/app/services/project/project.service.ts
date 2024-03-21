@@ -21,4 +21,8 @@ export class ProjectService {
     console.log(projects);
     return of(projects);
   }
+  getProjectsByTag(slug: string): Observable<Project[]> {
+    const projects = PROJECTS.filter((project) => project.tags?.find((tag) => tag.slug === slug))!;
+    return of(projects);
+  }
 }

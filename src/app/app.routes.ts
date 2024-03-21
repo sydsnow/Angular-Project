@@ -5,5 +5,6 @@ import { ProjectDetailComponent } from './components/project-detail/project-deta
 export const routes: Routes = [
     { path: 'projects', component: ProjectComponent, pathMatch: 'full' },
     { path: 'projects/:slug', component: ProjectDetailComponent },
-    { path: 'projects/categories/:slug', component: ProjectComponent }
+    { path: 'projects/categories/:slug', component: ProjectComponent },
+    { path: 'projects/tags/:slug', component: ProjectComponent }
 ];

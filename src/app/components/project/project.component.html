@@ -27,7 +27,9 @@
       <p *ngIf="project.tags" id="tags">
         Tags:
         <span *ngFor="let tag of project.tags; let last = last" (click)="setTagFilter(tag)">
-          {{ tag.name }}{{ !last ? ', ' : '' }}
+          <a [href]="'/projects/tags/' + tag.slug">
+            {{ tag.name }}{{ !last ? ', ' : '' }}
+          </a>
         </span>
       </p>
     </footer>

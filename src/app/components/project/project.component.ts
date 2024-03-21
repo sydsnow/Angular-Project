@@ -36,6 +36,11 @@ export class ProjectComponent implements OnInit{
     this.projectService.getProjectsByCategory(categorySlug).subscribe((data) => (this.projects = data));
   }
 
+  getProjectsByTag(): void {
+    const tagSlug = String(this.route.snapshot.paramMap.get('slug'));
+    this.projectService.getProjectsByTag(tagSlug).subscribe((data) => (this.projects = data));
+  }
+
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       console.log(params);
@@ -43,7 +48,11 @@ export class ProjectComponent implements OnInit{
       console.log(segment);
       if (segment === 'categories') {
         this.getProjectsByCategory();
-      } else {
+      }
+      else if (segment === 'tags') {
+        this.getProjectsByTag();
+      } 
+      else {
         this.getProjects();
       }
     })
