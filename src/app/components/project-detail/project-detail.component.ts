@@ -23,10 +23,10 @@ export class ProjectDetailComponent implements OnInit{
   project? : Project;
 
   getProject(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.projectService.getProject(id).subscribe((data) => (this.project = data));
+    const slug = String(this.route.snapshot.paramMap.get('slug'));
+    this.projectService.getProject(slug).subscribe((data) => (this.project = data));
   }
-
+  
   ngOnInit(): void {
     this.getProject();
   }
