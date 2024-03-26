@@ -33,9 +33,12 @@ export class AppComponent {
 
   categoryFilter: Category | undefined;
   tagFilter: Tag | undefined;
+  categorySlug: string = '';
+  tagSlug: string = '';
 
   setCategoryFilter(category: Category) {
     this.categoryFilter = category;
+    this.categorySlug = category.slug;
   }
 
   setTagFilter(tag: Tag) {

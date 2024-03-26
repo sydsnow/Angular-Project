@@ -5,6 +5,7 @@ main {
     padding: 15px;
 }
 
+
 .categories, .tags {
     font-size: 0.8em;
 }
@@ -67,6 +68,9 @@ header {
 }
 #clear-button {
     margin-top: 10px;
+}
+body {
+  background-color: #f7f7f7;
 }
 // @media (min-width: 1024px) {
 //     .projects-container {

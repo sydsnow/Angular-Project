@@ -56,7 +56,7 @@ export class ProjectComponent implements OnInit{
         this.getProjects();
       }
     })
-    this.getProjects();
+    //this.getProjects();
   }
   
   @Input() categoryFilter: Category | undefined;
