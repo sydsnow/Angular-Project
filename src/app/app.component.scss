@@ -5,7 +5,8 @@ main {
     padding: 15px;
 }
 
-#categories, #tags {
+
+.categories, .tags {
     font-size: 0.8em;
 }
 
@@ -68,14 +69,17 @@ header {
 #clear-button {
     margin-top: 10px;
 }
-@media (min-width: 1024px) {
-    .projects-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
+body {
+  background-color: #f7f7f7;
 }
-@media (min-width: 1280px) {
-    .projects-container {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
+// @media (min-width: 1024px) {
+//     .projects-container {
+//         display: grid;
+//         grid-template-columns: 1fr 1fr;
+//     }
+// }
+// @media (min-width: 1280px) {
+//     .projects-container {
+//         grid-template-columns: 1fr 1fr 1fr;
+//     }
+// }
