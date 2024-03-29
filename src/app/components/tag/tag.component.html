@@ -1,6 +1,6 @@
 <div class="tags">
     <div *ngFor="let tag of tags" 
-         id="filter--tags-buttons"
+        class="filter-buttons"
          (click)="setTagFilter(tag)">
          <a [href]="'/projects/tags/' + tag.slug">
             {{ tag.name }}

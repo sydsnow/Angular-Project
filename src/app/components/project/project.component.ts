@@ -8,13 +8,15 @@ import { ProjectService } from '../../services/project/project.service';
 import { ProjectDetailComponent } from '../project-detail/project-detail.component';
 import { Tag } from '../../models/tag';
 import { Category } from '../../models/category';
+import { LaptopComponent } from '../laptop/laptop.component';
 
 @Component({
   selector: 'app-project',
   standalone: true,
   imports: [
     CommonModule,
-    ProjectDetailComponent
+    ProjectDetailComponent,
+    LaptopComponent
   ],
   templateUrl: './project.component.html',
   styleUrl: './project.component.scss'

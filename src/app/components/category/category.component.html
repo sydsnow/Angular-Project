@@ -1,7 +1,7 @@
 <div class="categories">
     <div *ngFor="let category of categories"
         (click)="setCategoryFilter(category)"
-        id="filter-buttons">
+        class="filter-buttons">
         <a [href]="'/projects/categories/' + category.slug">
             {{ category.name }}
         </a>
