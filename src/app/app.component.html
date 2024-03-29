@@ -7,14 +7,14 @@
       <section class="filter">
         <div class="filters-section">
           <div class="categories">
-            CATEGORIES:
+            <p class="nav-heading">CATEGORIES:</p>
             <app-category
               [categoryFilter]="categoryFilter"
               (newCategoryFilterEvent)="setCategoryFilter($event)"
             ></app-category>
           </div>
           <div class="tags">
-            TAGS:
+            <p class="nav-heading">TAGS:</p>
             <app-tag
               [tagFilter]="tagFilter"
               (newTagFilterEvent)="setTagFilter($event)"
@@ -24,29 +24,15 @@
             {{ categoryFilter?.name || tagFilter?.name }}:
             <button (click)="clearFilters()" class="btn btn-danger" id="clear-button">Clear</button>
           </div> -->
-          <a href="/projects">
-            <button>Back to List</button>
-          </a>
+          <div id="current-filter">
+            <div id="filter-div">Filter:</div>
+            <a href="/projects">
+              <button id="clear-button"><i class="bi bi-trash3"></i></button>
+            </a>  
+          </div>
         </div>
       </section>
       <router-outlet></router-outlet>
-      <!-- <section class="projects-container" *ngIf="!selectedProject">
-        <app-project
-          [categoryFilter]="categoryFilter"
-          (newCategoryFilterEvent)="setCategoryFilter($event)"
-          [tagFilter]="tagFilter"
-          (newTagFilterEvent)="setTagFilter($event)"
-          (newSelectedProjectEvent)="setSelectedProject($event)"
-        ></app-project>
-      </section>
-      <section class="project-detail-container" *ngIf="selectedProject">
-        <button (click)="clearSelectedProject()">
-          Back to list
-        </button>
-        <app-project-detail
-          [project]="selectedProject"
-        ></app-project-detail>
-      </section> -->
     </main>
     <footer>&copy; {{ author }} - {{ date.getFullYear() }}</footer>
   </div>
