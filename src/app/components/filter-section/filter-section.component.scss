@@ -1,0 +1,30 @@
+.filter {
+    // margin-top: 15px;
+    margin-bottom: 15px;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+    padding: 15px;
+    padding-right: 90px;
+    height: 580px;
+    margin: 40px;
+}
+#clear-button {
+    border: none;
+    background-color:#f7f7f7 ;
+    //padding-bottom: 10px;
+    
+  }
+  #current-filter {
+    display: flex;
+    align-items: center;
+  }
+  #filter-div {
+    font-weight: 600;
+    padding: 0.5rem 0;
+  }
+  .nav-heading {
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 0.5rem 0;
+    margin: 0;
+  }

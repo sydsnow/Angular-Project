@@ -9,6 +9,7 @@ import { ProjectDetailComponent } from '../project-detail/project-detail.compone
 import { Tag } from '../../models/tag';
 import { Category } from '../../models/category';
 import { LaptopComponent } from '../laptop/laptop.component';
+import { FilterSectionComponent } from '../filter-section/filter-section.component';
 
 @Component({
   selector: 'app-project',
@@ -16,7 +17,8 @@ import { LaptopComponent } from '../laptop/laptop.component';
   imports: [
     CommonModule,
     ProjectDetailComponent,
-    LaptopComponent
+    LaptopComponent,
+    FilterSectionComponent
   ],
   templateUrl: './project.component.html',
   styleUrl: './project.component.scss'
