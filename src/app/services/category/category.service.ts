@@ -10,4 +10,7 @@ export class CategoryService {
   getCategories(): Category[] {
     return CATEGORIES;
   }
+  getCategoryBySlug(slug: string): Category | undefined {
+    return CATEGORIES.find(category => category.slug === slug);
+  }
 }

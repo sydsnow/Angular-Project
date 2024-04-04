@@ -10,4 +10,7 @@ export class TagService {
   getTags(): Tag[] {
     return TAGS;
   }
+  getTagBySlug(slug: string): Tag | undefined {
+    return TAGS.find(tag => tag.slug === slug);
+  }
 }

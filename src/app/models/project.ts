@@ -2,9 +2,10 @@ import { Category } from './category';
 import { Tag } from './tag';
 
 export interface Project {
-    'id': number;
+  'id': number;
   'title': string;
   'slug': string;
+  'github': string;
   'excerpt': string;
   'body': string;
   'url': string | null;
@@ -16,4 +17,5 @@ export interface Project {
   'updated_at': string;
   'category': Category | null;
   'tags': Tag[];
+  'learning-outcomes': string[];
 }
