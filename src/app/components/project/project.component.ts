@@ -30,6 +30,7 @@ export class ProjectComponent implements OnInit{
    ) { }
 
   projects: Project[] = [];
+
   getProjects(): void {
     this.projectService.getProjects().subscribe((data) => (this.projects = data));
   }
@@ -60,7 +61,6 @@ export class ProjectComponent implements OnInit{
         this.getProjects();
       }
     })
-    //this.getProjects();
   }
   
   @Input() categoryFilter: Category | undefined;

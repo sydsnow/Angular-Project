@@ -14,8 +14,10 @@
           (newTagFilterEvent)="setTagFilter($event)"
         ></app-tag>
       </div>
-      <div id="current-filter">
-        <div id="filter-div">Filter: </div>
+      <div id="current-filter" *ngIf="currentFilter !== ''">
+        <div id="filter-div" >Filter: 
+            <span id="current-filter-span">{{ currentFilter }}</span>
+        </div>
         <a href="/projects">
           <button id="clear-button"><i class="bi bi-trash3"></i></button>
         </a>  

@@ -4,7 +4,7 @@
   </header>
   <section>
     <h2>{{ project.title | uppercase }}</h2>
-    <div>{{ project.body }}</div>
+    <div>{{ project.excerpt }}</div>
   </section>
   <footer>
     <div *ngIf="project.category">
@@ -12,9 +12,15 @@
     </div>
     <div *ngIf="project.tags?.length">
       Tags:
-      <span *ngFor="let tag of project.tags">
-        {{ tag.name }}
+      <span  *ngFor="let tag of project.tags; let last = last">
+        {{ tag.name }}{{ !last ? ', ' : '' }}
       </span>
+    </div>
+    <div>
+     Github: <a href="{{project.github}}">{{ project.github }}</a>
+    </div>
+    <div *ngIf="project.url">
+      url: <a href="{{ project.url }}">{{ project.url }}</a>
     </div>
   </footer>
 </article>

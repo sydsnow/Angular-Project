@@ -21,10 +21,16 @@
   #filter-div {
     font-weight: 600;
     padding: 0.5rem 0;
+    white-space: nowrap;
   }
   .nav-heading {
     font-weight: 600;
     font-size: 1.1em;
     padding: 0.5rem 0;
     margin: 0;
-  }
+}
+#current-filter-span {
+    font-weight: 400;
+    color: rgb(106, 105, 105);
+    padding: 0 5px;
+}
