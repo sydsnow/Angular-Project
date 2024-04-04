@@ -28,25 +28,9 @@ import { ProjectDetailComponent } from './components/project-detail/project-deta
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements OnInit{
-  currentFilter: string = ''; // Variable to hold the current filter
-
+export class AppComponent {
   constructor(private router: Router, private route: ActivatedRoute) {}
 
-  ngOnInit(): void {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        // Get the current route snapshot
-        const currentRoute = this.route.snapshot;
-        
-        // Check if there are route parameters and extract the slug if available
-        const slug = currentRoute.paramMap.get('slug');
-        
-        // Update the currentFilter variable
-        this.currentFilter = slug || '';
-      }
-    });
-  }
   title = 'Angular - Assignment 1';
   date = new Date();
   author = "Sydnee Snowball";

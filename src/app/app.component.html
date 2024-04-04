@@ -21,7 +21,7 @@
       </div> -->
     </header>
     <main>
-      <section class="filter">
+      <!-- <section class="filter">
         <div class="filters-section">
           <div class="categories">
             <p class="nav-heading">CATEGORIES:</p>
@@ -36,19 +36,19 @@
               [tagFilter]="tagFilter"
               (newTagFilterEvent)="setTagFilter($event)"
             ></app-tag>
-          </div>
+          </div> -->
           <!-- <div *ngIf="categoryFilter || tagFilter">
             {{ categoryFilter?.name || tagFilter?.name }}:
             <button (click)="clearFilters()" class="btn btn-danger" id="clear-button">Clear</button>
           </div> -->
-          <div id="current-filter">
+          <!-- <div id="current-filter">
             <div id="filter-div">Filter: {{ currentFilter}}</div>
             <a href="/projects">
               <button id="clear-button"><i class="bi bi-trash3"></i></button>
             </a>  
           </div>
         </div>
-      </section>
+      </section> -->
       <router-outlet></router-outlet>
     </main>
     <footer>&copy; {{ author }} - {{ date.getFullYear() }}</footer>
