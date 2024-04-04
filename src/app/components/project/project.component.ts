@@ -9,6 +9,7 @@ import { ProjectDetailComponent } from '../project-detail/project-detail.compone
 import { Tag } from '../../models/tag';
 import { Category } from '../../models/category';
 import { LaptopComponent } from '../laptop/laptop.component';
+import { FilterSectionComponent } from '../filter-section/filter-section.component';
 
 @Component({
   selector: 'app-project',
@@ -16,7 +17,8 @@ import { LaptopComponent } from '../laptop/laptop.component';
   imports: [
     CommonModule,
     ProjectDetailComponent,
-    LaptopComponent
+    LaptopComponent,
+    FilterSectionComponent
   ],
   templateUrl: './project.component.html',
   styleUrl: './project.component.scss'
@@ -28,6 +30,7 @@ export class ProjectComponent implements OnInit{
    ) { }
 
   projects: Project[] = [];
+
   getProjects(): void {
     this.projectService.getProjects().subscribe((data) => (this.projects = data));
   }
@@ -58,7 +61,6 @@ export class ProjectComponent implements OnInit{
         this.getProjects();
       }
     })
-    //this.getProjects();
   }
   
   @Input() categoryFilter: Category | undefined;

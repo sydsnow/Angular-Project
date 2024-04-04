@@ -1,0 +1,26 @@
+<section class="filter">
+    <div class="filters-section">
+      <div class="categories">
+        <p class="nav-heading">CATEGORIES:</p>
+        <app-category
+          [categoryFilter]="categoryFilter"
+          (newCategoryFilterEvent)="setCategoryFilter($event)"
+        ></app-category>
+      </div>
+      <div class="tags">
+        <p class="nav-heading">TAGS:</p>
+        <app-tag
+          [tagFilter]="tagFilter"
+          (newTagFilterEvent)="setTagFilter($event)"
+        ></app-tag>
+      </div>
+      <div id="current-filter" *ngIf="currentFilter !== ''">
+        <div id="filter-div" >Filter: 
+            <span id="current-filter-span">{{ currentFilter }}</span>
+        </div>
+        <a href="/projects">
+          <button id="clear-button"><i class="bi bi-trash3"></i></button>
+        </a>  
+      </div>
+    </div>
+</section>

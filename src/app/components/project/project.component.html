@@ -1,31 +1,42 @@
-<section class="projects-container">
-  <div 
-    *ngFor="let project of projects" 
-    class="projects" 
-    [class.hidden]="isProjectHidden(project)" 
-    (click)="setSelectedProject(project)"
-  >
-    <section id="laptop-container">
-      <app-laptop [image]="'../../assets/images/' + project.image"></app-laptop>
-    </section>
-    <footer id="footer-container">
-      <a href="/projects/{{ project?.slug }}">
-        <h3 id="project-title">{{ project.title }}</h3>
-      </a>
-      <p *ngIf="project.category" id="categories" >
-        Category: 
-        <a [href]="'/projects/categories/' + project.category.slug" class="project-filters">
-          {{ project.category.name }}
-        </a>
-      </p>
-      <p *ngIf="project.tags" id="tags">
-        Tags:
-        <span *ngFor="let tag of project.tags; let last = last" (click)="setTagFilter(tag)">
-          <a [href]="'/projects/tags/' + tag.slug" class="project-filters">
-            {{ tag.name }}{{ !last ? ', ' : '' }}
+<section class="main-container">
+  <div id="name-container">
+    <h1>Sydnee Snowball</h1>
+    <a href="/home">
+      <i class="bi bi-house-door" ></i>
+    </a>
+  </div>
+  <div id="filter-projects-section">
+    <app-filter-section class="filter-container"></app-filter-section>
+    <section class="projects-container">
+      <div 
+        *ngFor="let project of projects" 
+        class="projects" 
+        [class.hidden]="isProjectHidden(project)" 
+        (click)="setSelectedProject(project)"
+      >
+        <section id="laptop-container">
+          <app-laptop [image]="'../../assets/images/' + project.image"></app-laptop>
+        </section>
+        <footer id="footer-container">
+          <a href="/projects/{{ project?.slug }}">
+            <h3 id="project-title">{{ project.title }}</h3>
           </a>
-        </span>
-      </p>
-    </footer>
+          <p *ngIf="project.category" id="categories" >
+            Category: 
+            <a [href]="'/projects/categories/' + project.category.slug" class="project-filters">
+              {{ project.category.name }}
+            </a>
+          </p>
+          <p *ngIf="project.tags" id="tags">
+            Tags:
+            <span *ngFor="let tag of project.tags; let last = last" (click)="setTagFilter(tag)">
+              <a [href]="'/projects/tags/' + tag.slug" class="project-filters">
+                {{ tag.name }}{{ !last ? ', ' : '' }}
+              </a>
+            </span>
+          </p>
+        </footer>
+      </div>
+    </section>  
   </div>
 </section>

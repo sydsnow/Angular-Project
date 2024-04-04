@@ -1,7 +1,24 @@
 <body>
   <div class="wrapper">
     <header>
-      <h1>{{ author }}</h1>
+      <!-- <div class="banner-container">
+        <img
+          src="../assets/images/banner-img.jpg"
+          alt="Banner image"
+          id="banner-img"
+        >
+      </div>
+      <div id="banner-info">
+        <h1 id="banner-title">{{ author }}</h1>
+        <div id="button-container">
+          <a href="https://github.com/sydsnow" target="_blank" rel="noopener noreferrer">
+            <button><i class="bi bi-github"></i> Github</button>
+          </a>
+          <a href="www.linkedin.com/in/sydnee-snowball-167661201" target="_blank" rel="noopener noreferrer">
+            <button><i class="bi bi-linkedin"></i> LinkedIn</button>  
+          </a>
+        </div>
+      </div> -->
     </header>
     <main>
       <section class="filter">
@@ -25,7 +42,7 @@
             <button (click)="clearFilters()" class="btn btn-danger" id="clear-button">Clear</button>
           </div> -->
           <div id="current-filter">
-            <div id="filter-div">Filter:</div>
+            <div id="filter-div">Filter: {{ currentFilter}}</div>
             <a href="/projects">
               <button id="clear-button"><i class="bi bi-trash3"></i></button>
             </a>  
