@@ -14,6 +14,7 @@
         [class.hidden]="isProjectHidden(project)" 
         (click)="setSelectedProject(project)"
       >
+      <div class="project-overlay">{{project.excerpt}}</div>
         <section id="laptop-container">
           <app-laptop [image_sm]="'../../assets/images/' + project.image_sm"></app-laptop>
         </section>

@@ -1,4 +1,5 @@
 .projects {
+    position: relative;
     //padding: 10px;
     &.hidden {
         display: none;
@@ -33,6 +34,8 @@ a:hover {
     width: 420px;
     box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.5);
     height: 456px;
+    overflow-x: hidden;
+
     // box-shadow: //2px 2px 20px 2px rgba(0, 0, 0, 0.5),
     //         4px 4px 15px 4px rgba(0, 0, 0, 0.5);
 
@@ -101,3 +104,28 @@ a:hover {
     padding-top: 40px;
     font-size: 1.3rem;
 }
+.project-overlay {
+    /* Your existing styles */
+    position: absolute;
+    top: 0;
+    right: -100%; /* Adjust the position to the right */
+    width: 100%;
+    height: 72%;
+    //background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(204, 196, 186, 1);
+    opacity: 0; /* Initially set opacity to 0 */
+    transition: right 0.5s ease;
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    font-size: 1.05rem;
+  }
+  
+  .projects:hover .project-overlay {
+    opacity: 1; /* Fade in the overlay div when hovering */
+    z-index: 1;
+    right: 0;
+  }
+  .projects .project-overlay {
+    transition: right 0.5s ease; /* Separate transition for right property */
+  }
