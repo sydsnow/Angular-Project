@@ -15,6 +15,7 @@
   #current-filter {
     display: flex;
     align-items: center;
+    position: absolute;
   }
   #filter-div {
     font-weight: 600;
@@ -31,4 +32,8 @@
     font-weight: 400;
     color: rgb(106, 105, 105);
     padding: 0 5px;
+    width: 100px;
+}
+.categories {
+  padding-top: 35px;
 }
