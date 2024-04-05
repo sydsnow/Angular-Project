@@ -25,7 +25,7 @@ a:hover {
 }
 .projects {
     background-color: white;
-    margin: 40px 80px;
+    margin: 40px 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,9 +88,16 @@ a:hover {
 // }
 #name-container > h1{
     margin: 20px 40px;
+    //padding: 20px;
+    //margin-left: 20px;
 }
 #name-container {
     display: flex;
     align-items: center;
-
+}
+#home-button {
+    margin-left: 40px;
+    //margin-top: 40px;
+    padding-top: 40px;
+    font-size: 1.3rem;
 }
