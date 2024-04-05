@@ -15,7 +15,7 @@
         (click)="setSelectedProject(project)"
       >
         <section id="laptop-container">
-          <app-laptop [image]="'../../assets/images/' + project.image"></app-laptop>
+          <app-laptop [image_sm]="'../../assets/images/' + project.image_sm"></app-laptop>
         </section>
         <footer id="footer-container">
           <a href="/projects/{{ project?.slug }}">

@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './laptop.component.scss'
 })
 export class LaptopComponent {
-  @Input() image: string | undefined;
+  @Input() image_sm: string | undefined;
 }

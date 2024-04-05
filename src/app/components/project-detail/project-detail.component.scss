@@ -1,3 +1,86 @@
 .project-detail-container {
     min-height: 100vh;
+    font-family: "Nunito", sans-serif;
+    //background: linear-gradient(#f7f7f7, rgba(0, 139, 139, 0.1));
+
+}
+#project-detail-image {
+    width: 800px;
+    margin-bottom: 40px;
+    box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.5);
+}
+.pd-image-container {
+    display: flex;
+    justify-content: center;
+}
+.pd-title-container {
+    display: flex;
+    justify-content: center;
+}
+.pd-info {
+    display: flex;
+}
+.pd-body-outcomes {
+    width: 60%;
+    padding: 50px;
+    margin-left: 40px;
+}
+.pd-tech-git {
+    width: 40%;
+    padding: 50px;
+}
+.pd-title-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#pd-body {
+    margin-bottom: 30px;
+}
+#pd-tags {
+    background-color: darkcyan;
+    color: white;
+    //padding: 4px 7px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 9px;
+    padding-right: 7px;
+    margin-right: 5px;
+}
+.pd-tech {
+    margin-bottom: 20px;
+}
+#pd-links {
+    display: flex;
+}
+.pd-link-button {
+    border: 1.5px solid darkcyan;
+    color: darkcyan;
+    padding: 5px 15px;
+    font-size: 1.2rem;
+    margin-right: 5px;
+    font-weight: 300;
+    border-radius: 3px;
+    background-color: #f7f7f7;
+    transition: background-color 0.4s, color 0.4s;
+}
+.pd-link-button:hover {
+    background-color: darkcyan;
+    color: white;
+}
+#pd-back-button {
+    border: 1.5px solid darkcyan;
+    border-radius: 3px;
+    color: darkcyan;
+    background-color: #f7f7f7;
+    transition: background-color 0.4s, color 0.4s;
+    padding: 1px 10px;
+    margin: 5px;
+    font-size: 1.2rem;
+
+}
+#pd-back-button:hover {
+    background-color: darkcyan;
+    color: white;
+
 }

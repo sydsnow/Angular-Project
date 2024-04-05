@@ -1,26 +1,47 @@
 <article *ngIf="project" class="project-detail-container">
   <header>
-    <button type="button" (click)="goBack()">Back</button>
+    <button type="button" (click)="goBack()" id="pd-back-button"><i class="bi bi-arrow-left"></i></button>
   </header>
-  <section>
-    <h2>{{ project.title | uppercase }}</h2>
-    <div>{{ project.excerpt }}</div>
+  <section class="pd-image-container">
+    <img 
+      [src]="'../../../assets/images/' + project.image_lg"
+      alt="Project image"
+      id="project-detail-image">
   </section>
-  <footer>
-    <div *ngIf="project.category">
-      Category: <span>{{ project.category.name }}</span>
+  <section class="pd-title-container">
+    <div class="pd-title-div">
+      <h2>{{ project.title | uppercase }}</h2>
+      <div *ngIf="project.category">
+        {{ project.category.name }}
+      </div>  
     </div>
-    <div *ngIf="project.tags?.length">
-      Tags:
-      <span  *ngFor="let tag of project.tags; let last = last">
-        {{ tag.name }}{{ !last ? ', ' : '' }}
-      </span>
-    </div>
-    <div>
-     Github: <a href="{{project.github}}">{{ project.github }}</a>
-    </div>
-    <div *ngIf="project.url">
-      url: <a href="{{ project.url }}">{{ project.url }}</a>
-    </div>
-  </footer>
+  </section>
+  <div class="pd-info">
+    <section class="pd-body-outcomes">
+      <div id="pd-body">{{ project.body }}</div>
+      <div>
+        <p><b>Learning Outcomes</b></p>
+        <ul *ngFor="let outcome of project.learning_outcomes">
+          <li>{{ outcome }}</li>
+        </ul>
+      </div>
+    </section>
+    <section class="pd-tech-git">
+      <div *ngIf="project.tags?.length" class="pd-tech">
+        <p><b>Technologies:</b></p>
+        <span  *ngFor="let tag of project.tags; let last = last" id="pd-tags">
+          {{ tag.name }}
+        </span>
+      </div>
+      <div id="pd-links">
+        <a href="{{ project.github }}"  target="_blank" rel="noopener noreferrer">
+          <button class="pd-link-button"><i class="bi bi-github"></i> Github</button>
+        </a>
+        <div *ngIf="project.url">
+          <a href="{{ project.url }}"><button class="pd-link-button">Live Site</button></a>
+        </div>  
+      </div>
+    </section>
+  </div>
 </article>
+
