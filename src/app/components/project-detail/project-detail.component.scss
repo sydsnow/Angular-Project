@@ -1,3 +1,53 @@
 .project-detail-container {
     min-height: 100vh;
+    font-family: "Nunito", sans-serif;
+}
+#project-detail-image {
+    width: 800px;
+    margin-bottom: 40px;
+    box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.5);
+}
+.pd-image-container {
+    display: flex;
+    justify-content: center;
+}
+.pd-title-container {
+    display: flex;
+    justify-content: center;
+}
+.pd-info {
+    display: flex;
+}
+.pd-body-outcomes {
+    width: 50%;
+    padding: 50px;
+    margin-left: 40px;
+}
+.pd-tech-git {
+    width: 50%;
+    padding: 50px;
+}
+.pd-title-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#pd-body {
+    margin-bottom: 30px;
+}
+#pd-tags {
+    background-color: darkcyan;
+    color: white;
+    //padding: 4px 7px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 9px;
+    padding-right: 7px;
+    margin: 3px;
+}
+.pd-tech {
+    margin-bottom: 20px;
+}
+#pd-links {
+    display: flex;
 }
