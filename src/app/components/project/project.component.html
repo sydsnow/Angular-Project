@@ -22,7 +22,6 @@
           <a href="/projects/{{ project?.slug }}">
             <h3 id="project-title">{{ project.title }}</h3>
           </a>
-          <!-- <p id="project-except">{{ project.excerpt }}</p> -->
           <p *ngIf="project.category" id="categories" >
             Category: 
             <a [href]="'/projects/categories/' + project.category.slug" class="project-filters">

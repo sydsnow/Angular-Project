@@ -21,6 +21,7 @@
     width: 60%;
     padding: 50px;
     margin-left: 40px;
+    font-size: 1.1rem;
 }
 .pd-tech-git {
     width: 40%;
@@ -82,3 +83,23 @@
     color: white;
 
 }
+.pd-tech p {
+    font-size: 1.1rem;
+}
+.pd-title-container h2 {
+    font-size: 2.1rem;
+    position: relative; /* Ensure the container is positioned relatively */
+    z-index: 1;
+}
+
+.pd-title-container h2::after {
+    content: ""; /* Required for pseudo-elements */
+    position: absolute;
+    bottom: 4px; /* Adjust the distance from the text */
+    left: 8px; /* Start the underline from the beginning of the text */
+    width: calc(100% + 2px); /* Make the underline extend beyond the text */
+    height: 10px; /* Set the thickness of the underline */
+    background-color: darkcyan;
+    z-index: -1;
+}
+
