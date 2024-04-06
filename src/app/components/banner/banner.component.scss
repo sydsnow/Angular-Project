@@ -42,10 +42,10 @@
     color: #000;
     border: 2px outset rgba(0, 0, 0, 0.9);
     background: rgb(204 196 186);
-    text-shadow: 1px 1px 1px rgba(0,0,0, 20);
+    text-shadow: 1px 1px 1px rgba(0,0,0, 0.4);
     box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
     letter-spacing: 2px;
-    transition: 0.2s;
+    transition: background-color 0.4s, color 0.4s;
     padding: 8px 15px;
     margin: 5px;
     font-size: 1.3rem;
@@ -54,4 +54,8 @@
   #banner-wrapper {
     height: 100vh;
     width: 100vw;
+  }
+  #button-container button:hover {
+    background-color: black;
+    color: rgb(204 196 186);
   }

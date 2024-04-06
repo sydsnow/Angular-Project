@@ -40,7 +40,7 @@ export const PROJECTS: Project[] = [
     "title": "CineSync",
     "slug": "cinesync",
     "github": "https://github.com/wanradavich/Movie-Application",
-    "excerpt": "In this group project, we built a movie application using React and the TMDb API.",
+    "excerpt": "Built a movie application as part of a group project using React and the TMDb API.",
     "body": "Together as a team, we developed CineSync, a movie application that taps into the TMDb API to offer users access to a wide array of movie details, including current, top-rated, and upcoming films, along with trailers. Our fully responsive platform allows users to bookmark their favorite movies for future reference. By breaking down our app into distinct components and leveraging React's router, we ensured code organization while delivering a user-friendly interface for seamless navigation.",
     "url": "https://movie-application.fly.dev",
     "published_date": null,
