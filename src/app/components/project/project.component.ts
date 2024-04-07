@@ -1,9 +1,7 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-
 import { Project } from '../../models/project';
-import { PROJECTS } from '../../data/projects';
 import { ProjectService } from '../../services/project/project.service';
 import { ProjectDetailComponent } from '../project-detail/project-detail.component';
 import { Tag } from '../../models/tag';
@@ -23,10 +21,12 @@ import { FilterSectionComponent } from '../filter-section/filter-section.compone
   templateUrl: './project.component.html',
   styleUrl: './project.component.scss'
 })
-export class ProjectComponent implements OnInit{
+export class ProjectComponent implements OnInit, AfterViewInit{
   constructor(
     private projectService: ProjectService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private elRef: ElementRef,
+    private renderer: Renderer2
    ) { }
 
   projects: Project[] = [];
@@ -62,6 +62,22 @@ export class ProjectComponent implements OnInit{
       }
     })
   }
+  // Functionality for the hamburger nav on mobile
+  ngAfterViewInit(): void {
+    const hamburger = this.elRef.nativeElement.querySelector('.hamburger');
+    const filterMenu = this.elRef.nativeElement.querySelector('.filter');
+  
+    this.renderer.listen(hamburger, 'click', () => {
+      const isFilterMenuActive = filterMenu.classList.contains('active');
+  
+      if (!isFilterMenuActive) {
+        filterMenu.classList.add('active');
+      } else {
+        filterMenu.classList.remove('active');
+      }
+        hamburger.classList.toggle('active');
+    });
+  }
   
   @Input() categoryFilter: Category | undefined;
   @Output() newCategoryFilterEvent = new EventEmitter<Category>();
@@ -71,7 +87,6 @@ export class ProjectComponent implements OnInit{
 
   selectedProject?: Project;
 
-  //@Input() selectedProject: Project | undefined;
   @Output() newSelectedProjectEvent = new EventEmitter<Project>();
 
   setSelectedProject(project: Project): void {
@@ -92,7 +107,7 @@ export class ProjectComponent implements OnInit{
     this.categoryFilter = undefined;
     this.tagFilter = undefined;
   }
-
+  
   isProjectHidden(project: any): boolean {
     if (this.categoryFilter && project.category && project.category.slug !== this.categoryFilter.slug) {
         return true;

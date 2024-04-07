@@ -2,11 +2,12 @@
     margin-bottom: 15px;
     border-top: 0.5px solid black;
     border-bottom: 0.5px solid black;
-    padding: 15px;
+    padding-top: 10px;
+    padding-left: 40px;
     padding-right: 90px;
     height: 590px;
     overflow-y: auto;
-    margin: 40px;
+    margin: 40px 0;
 }
 #clear-button {
     border: none;
@@ -36,4 +37,53 @@
 }
 .categories {
   padding-top: 35px;
+}
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px;
+  margin-left: 20px;
+  background-color: rgb(40, 40, 40);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Transition that turns the 3 span lines into an x */
+.hamburger {
+  display: block;
+
+  &.active {
+      .bar {
+          &:nth-child(2) {
+              opacity: 0;
+          }
+
+          &:nth-child(1) {
+              transform: translateY(8px) rotate(45deg);
+          }
+
+          &:nth-child(3) {
+              transform: translateY(-8px) rotate(-45deg);
+          }
+      }
+  }
+}
+.filter {
+  position: absolute;
+  left: -100%;
+  z-index: 10;
+  background-color: #f7f7f7;
+  transition: 0.5s;
+
+  &.active {
+      left: 0;
+  }}
+
+@media(min-width: 768px) {
+  .filter {
+    left: 0;
+    position: relative;
+    margin-left: 20px;
+  }
 }

@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TagComponent } from '../tag/tag.component';
 import { CategoryComponent } from '../category/category.component';
 import { Category } from '../../models/category';
 import { Tag } from '../../models/tag';
 import { ActivatedRoute } from '@angular/router';
-import  { TagService } from "../../services/tag/tag.service";
+import { TagService } from "../../services/tag/tag.service";
 import { CategoryService } from '../../services/category/category.service';
 
 @Component({
@@ -19,8 +19,8 @@ export class FilterSectionComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private tagService: TagService,
-    private categoryService: CategoryService
-   ) { }
+    private categoryService: CategoryService,
+  ) { }
   categoryFilter: Category | undefined;
   tagFilter: Tag | undefined;
   categorySlug: string = '';
@@ -59,12 +59,10 @@ export class FilterSectionComponent implements OnInit {
         if (tagObj) {
           this.currentFilter = tagObj.name;
         }
-      } 
+      }
       else {
         this.currentFilter = "";
       }
-    })
-
-    console.log('the current filter slug is',this.currentFilter);
+    });
   }
 }

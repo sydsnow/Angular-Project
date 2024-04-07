@@ -11,7 +11,7 @@
   <section class="pd-title-container">
     <div class="pd-title-div">
       <h2>{{ project.title | uppercase }}</h2>
-      <div *ngIf="project.category">
+      <div *ngIf="project.category" id="pd-category">
         {{ project.category.name }}
       </div>  
     </div>
@@ -29,9 +29,11 @@
     <section class="pd-tech-git">
       <div *ngIf="project.tags?.length" class="pd-tech">
         <p><b>Technologies:</b></p>
-        <span  *ngFor="let tag of project.tags; let last = last" id="pd-tags">
-          {{ tag.name }}
-        </span>
+        <div id="pd-tags-container">
+          <span  *ngFor="let tag of project.tags; let last = last" id="pd-tags">
+            {{ tag.name }}
+          </span>  
+        </div>
       </div>
       <div id="pd-links">
         <a href="{{ project.github }}"  target="_blank" rel="noopener noreferrer">
