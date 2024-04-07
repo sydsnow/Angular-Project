@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
@@ -23,10 +23,12 @@ import { FilterSectionComponent } from '../filter-section/filter-section.compone
   templateUrl: './project.component.html',
   styleUrl: './project.component.scss'
 })
-export class ProjectComponent implements OnInit{
+export class ProjectComponent implements OnInit, AfterViewInit{
   constructor(
     private projectService: ProjectService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private elRef: ElementRef,
+    private renderer: Renderer2
    ) { }
 
   projects: Project[] = [];
@@ -61,6 +63,23 @@ export class ProjectComponent implements OnInit{
         this.getProjects();
       }
     })
+  }
+  ngAfterViewInit(): void {
+    const hamburger = this.elRef.nativeElement.querySelector('.hamburger');
+    const filterMenu = this.elRef.nativeElement.querySelector('.filter');
+  
+    this.renderer.listen(hamburger, 'click', () => {
+      const isFilterMenuActive = filterMenu.classList.contains('active');
+  
+      if (!isFilterMenuActive) {
+        filterMenu.classList.add('active');
+      } else {
+        filterMenu.classList.remove('active');
+      }
+  
+      // Toggle hamburger class
+      hamburger.classList.toggle('active');
+    });
   }
   
   @Input() categoryFilter: Category | undefined;

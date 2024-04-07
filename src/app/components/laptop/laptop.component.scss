@@ -12,11 +12,9 @@ body {
 	position: relative;
 	margin: auto;
 	max-width: 20rem;
-    //max-height: 250px;
 
 	.laptop__screen {
 		position: relative;
-		//z-index: 1;
 		padding: 3%;
 		border-radius: 0.5rem;
 		background: #ecf1f7;
@@ -35,7 +33,6 @@ body {
 
 	.laptop__bottom {
 		position: relative;
-		//z-index: 1;
 		margin-right: -7%;
 		margin-left: -7%;
 		height: .2rem;

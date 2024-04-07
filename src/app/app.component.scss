@@ -3,40 +3,32 @@ main {
     flex-direction: row;
     font-family: "Nunito", sans-serif;
 }
-
 .categories, .tags {
     font-size: 0.8em;
 }
-
 body {
     margin: 0;
     padding: 0;
     min-height: 100vh; 
-    max-width: 100vw;/* Make sure the body takes up the full height of the viewport */
+    max-width: 100vw;
   }
-  
   .wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Make sure the wrapper takes up at least the full height of the viewport */
+    min-height: 100vh; 
   }
-  
-  
   footer {
-    background-color: #d6e5f3; /* Add your desired background color */
+    background-color: #d6e5f3; 
     padding: 10px;
     text-align: right;
     position: sticky;
     bottom: 0;
+    z-index: 10;
   }
-
 header {
-   // padding-top: 15px;
-    //padding-left: 15px;
     max-height: 105vh;
 }
 .filter {
-    // margin-top: 15px;
     margin-bottom: 15px;
     border-top: 0.5px solid black;
     border-bottom: 0.5px solid black;
@@ -44,20 +36,16 @@ header {
     padding-right: 90px;
     height: 580px
 }
-
 #categories, #tags {
     font-size: 0.8em;
 }
-
 #categories {
     cursor: pointer;
-    text-decoration: underline; /* Underline the text to indicate clickable */
-  }
-  
-  #categories:hover {
-    text-decoration: none; /* Remove underline on hover*/
-  }
-
+    text-decoration: underline; 
+}
+#categories:hover {
+  text-decoration: none;
+}
 .projects {
     padding: 20px;
 }
@@ -92,51 +80,3 @@ body {
 #filter-div {
   font-weight: 600;
 }
-// #banner-img {
-//   max-width: 100vw;
-//   max-height: 100vh;
-// }
-// #banner-img {
-//   width: 100%;
-//   height: 100%;
-//   object-fit: cover;
-//   //opacity: 0.7;
-// }
-// .banner-container {
-//   background-size: contain;
-//   max-width: 100vw;
-//   height: 100vh;
-// }
-// #banner-info {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   position: relative;
-//   bottom: 460px;
-//   background-color: rgba(0, 0, 0, 0.7);
-// }
-// #button-container {
-//   display: flex;
-//   padding-bottom: 15px;
-// }
-// #banner-title {
-//   text-shadow: 2px 1px 2px #000;
-//   font-size: 5em;
-//   //color: rgba(255, 255, 255, 0.7);
-//   color: rgb(204 196 186);
-//   //color: white;
-// }
-// #button-container button {
-//   display: inline-block;
-//   color: #000;
-//   border: 2px outset rgba(0, 0, 0, 0.9);
-//   background: rgb(204 196 186);
-//   text-shadow: 1px 1px 1px rgba(0,0,0, 20);
-//   box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
-//   letter-spacing: 2px;
-//   transition: 0.2s;
-//   padding: 8px 15px;
-//   margin: 5px;
-//   font-size: 1.3rem;
-//   border-radius: 5px;
-// }

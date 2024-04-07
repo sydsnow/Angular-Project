@@ -1,54 +1,8 @@
 <body>
   <div class="wrapper">
     <header>
-      <!-- <div class="banner-container">
-        <img
-          src="../assets/images/banner-img.jpg"
-          alt="Banner image"
-          id="banner-img"
-        >
-      </div>
-      <div id="banner-info">
-        <h1 id="banner-title">{{ author }}</h1>
-        <div id="button-container">
-          <a href="https://github.com/sydsnow" target="_blank" rel="noopener noreferrer">
-            <button><i class="bi bi-github"></i> Github</button>
-          </a>
-          <a href="www.linkedin.com/in/sydnee-snowball-167661201" target="_blank" rel="noopener noreferrer">
-            <button><i class="bi bi-linkedin"></i> LinkedIn</button>  
-          </a>
-        </div>
-      </div> -->
     </header>
     <main>
-      <!-- <section class="filter">
-        <div class="filters-section">
-          <div class="categories">
-            <p class="nav-heading">CATEGORIES:</p>
-            <app-category
-              [categoryFilter]="categoryFilter"
-              (newCategoryFilterEvent)="setCategoryFilter($event)"
-            ></app-category>
-          </div>
-          <div class="tags">
-            <p class="nav-heading">TAGS:</p>
-            <app-tag
-              [tagFilter]="tagFilter"
-              (newTagFilterEvent)="setTagFilter($event)"
-            ></app-tag>
-          </div> -->
-          <!-- <div *ngIf="categoryFilter || tagFilter">
-            {{ categoryFilter?.name || tagFilter?.name }}:
-            <button (click)="clearFilters()" class="btn btn-danger" id="clear-button">Clear</button>
-          </div> -->
-          <!-- <div id="current-filter">
-            <div id="filter-div">Filter: {{ currentFilter}}</div>
-            <a href="/projects">
-              <button id="clear-button"><i class="bi bi-trash3"></i></button>
-            </a>  
-          </div>
-        </div>
-      </section> -->
       <router-outlet></router-outlet>
     </main>
     <footer>&copy; {{ author }} - {{ date.getFullYear() }}</footer>
