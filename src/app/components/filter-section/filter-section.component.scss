@@ -2,11 +2,12 @@
     margin-bottom: 15px;
     border-top: 0.5px solid black;
     border-bottom: 0.5px solid black;
-    padding: 15px;
+    padding-top: 10px;
+    padding-left: 40px;
     padding-right: 90px;
     height: 590px;
     overflow-y: auto;
-    margin: 40px;
+    margin: 40px 0;
 }
 #clear-button {
     border: none;
@@ -73,28 +74,16 @@
   left: -100%;
   z-index: 10;
   background-color: #f7f7f7;
-  // top: 15px;
-  // height: 74rem;
-  // gap: 0;
-  // display: flex;
-  // flex-wrap: wrap;
-  // flex-direction: column;
-  // align-items: flex-start;
-  // z-index: 1000;
-  // text-align: center;
   transition: 0.5s;
-  margin-left: 40px;
-  // margin-top: 40px;
 
   &.active {
-      //margin-top: 40px;
       left: 0;
-      //background-color: white;
   }}
 
-  @media(min-width: 768px) {
-    .filter {
-      left: 0;
-      position: relative;
-    }
+@media(min-width: 768px) {
+  .filter {
+    left: 0;
+    position: relative;
+    margin-left: 20px;
   }
+}

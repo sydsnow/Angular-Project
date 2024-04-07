@@ -1,9 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-
 import { Project } from '../../models/project';
-import { PROJECTS } from '../../data/projects';
 import { ProjectService } from '../../services/project/project.service';
 import { ProjectDetailComponent } from '../project-detail/project-detail.component';
 import { Tag } from '../../models/tag';
@@ -64,6 +62,7 @@ export class ProjectComponent implements OnInit, AfterViewInit{
       }
     })
   }
+  // Functionality for the hamburger nav on mobile
   ngAfterViewInit(): void {
     const hamburger = this.elRef.nativeElement.querySelector('.hamburger');
     const filterMenu = this.elRef.nativeElement.querySelector('.filter');
@@ -76,9 +75,7 @@ export class ProjectComponent implements OnInit, AfterViewInit{
       } else {
         filterMenu.classList.remove('active');
       }
-  
-      // Toggle hamburger class
-      hamburger.classList.toggle('active');
+        hamburger.classList.toggle('active');
     });
   }
   
@@ -90,7 +87,6 @@ export class ProjectComponent implements OnInit, AfterViewInit{
 
   selectedProject?: Project;
 
-  //@Input() selectedProject: Project | undefined;
   @Output() newSelectedProjectEvent = new EventEmitter<Project>();
 
   setSelectedProject(project: Project): void {
@@ -111,7 +107,7 @@ export class ProjectComponent implements OnInit, AfterViewInit{
     this.categoryFilter = undefined;
     this.tagFilter = undefined;
   }
-
+  
   isProjectHidden(project: any): boolean {
     if (this.categoryFilter && project.category && project.category.slug !== this.categoryFilter.slug) {
         return true;

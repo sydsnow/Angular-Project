@@ -1,6 +1,5 @@
 .projects {
     position: relative;
-    //padding: 10px;
     &.hidden {
         display: none;
     }
@@ -11,10 +10,10 @@ a {
 }
 a:hover {
     color: darkcyan;
-
 }
 #categories, #tags {
     margin: 0;
+    padding: 5px 10px;
     color: black;
     font-weight: 600;
 }
@@ -24,15 +23,16 @@ a:hover {
 }
 .projects {
     background-color: white;
-    margin: 40px 60px;
+    margin: 40px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 420px;
+    width: 280px;
     box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.5);
-    height: 456px;
+    height: 400px;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 #footer-container {
     display: flex;
@@ -40,6 +40,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     padding: 20px 0;
+    font-size: 0.8rem;
 }
 #laptop-container {
     padding: 60px 0;
@@ -47,46 +48,22 @@ a:hover {
     background-color: rgb(204 196 186);
 }
 #project-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 .projects-container {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr; //1fr;
-    //padding: 0 70px; IMPORTANT 
-    // flex-wrap: wrap;
-    // justify-content: center;
+    grid-template-columns: 1fr; 
 }
 .project-filters {
     color: rgb(106, 105, 105);
     font-weight: 400;
 }
-// #project-except {
-//     padding: 0 15px;
-// }
-// @media (min-width: 1024px) {
-//     .projects-container {
-//         display: grid;
-//         grid-template-columns: 1fr 1fr;
-//     }
-// }
-// @media (min-width: 1280px) {
-//     .projects-container {
-//         display: grid;
-//         grid-template-columns: 1fr 1fr 1fr;
-//         padding: 10px;
-//     }
-// }
 #filter-projects-section {
     display: flex;
 }
-// .filter-container {
-//     margin: 40px
-// }
 #name-container > h1{
     margin: 20px 40px;
-    //padding: 20px;
-    //margin-left: 20px;
 }
 #name-container {
     display: flex;
@@ -94,20 +71,17 @@ a:hover {
 }
 #home-button {
     margin-left: 40px;
-    //margin-top: 40px;
     padding-top: 40px;
     font-size: 1.3rem;
 }
 .project-overlay {
-    /* Your existing styles */
     position: absolute;
     top: 0;
-    right: -100%; /* Adjust the position to the right */
+    right: -100%; 
     width: 100%;
-    height: 72%;
-    //background-color: rgba(255, 255, 255, 1);
+    height: 70%;
     background-color: rgba(204, 196, 186, 1);
-    opacity: 0; /* Initially set opacity to 0 */
+    opacity: 0;
     transition: right 0.5s ease;
     display: flex;
     align-items: center;
@@ -115,14 +89,11 @@ a:hover {
     font-size: 1.05rem;
   }
   
-  .projects:hover .project-overlay {
-    opacity: 1; /* Fade in the overlay div when hovering */
-    z-index: 2;
-    right: 0;
-  }
-//   .projects .project-overlay {
-//     transition: right 0.5s ease; /* Separate transition for right property */
-//   }
+.projects:hover .project-overlay {
+opacity: 1;
+z-index: 2;
+right: 0;
+}
 .bar {
     display: block;
     width: 25px;
@@ -134,10 +105,10 @@ a:hover {
     transition: all 0.3s ease-in-out;
   }
   
-  /* Transition that turns the 3 span lines into an x */
   .hamburger {
     display: block;
     width: 50px;
+    margin-left: 20px;
   
     &.active {
         .bar {
@@ -155,30 +126,52 @@ a:hover {
         }
     }
   }
+  @media(min-width: 375px) {
+    .projects-container {
+        margin-left: 30px;
+    }
+  }
+  @media(min-width: 425px) {
+    .projects {
+        margin: 40px 70px;
+    }
+    .projects-container {
+        margin-left:0;
+    }
+  }
   @media(min-width: 768px) {
     .hamburger {
         display: none;
     }
     .projects-container {
-        //padding: 0 70px; 
-        // flex-wrap: wrap;
         justify-content: center;
-        //margin-left: 185px;
+        margin-left: 40px;
     }
     .projects {
         margin: 40px 0;
+        width: 420px;
+        height: 456px;
+    }
+    #project-title {
+        font-size: 1.5rem;
+    }
+    #footer-container{
+        font-size: 1rem;
+    }
+    #categories, #tags {
+        padding: 0;
+        margin-bottom: 10px;
     }
   }
   @media(min-width: 1024px) {
     .projects-container {
-        margin-left: 115px;
+        margin-left: 160px;
     }
   }
   @media(min-width: 1440px) {
     .projects-container {
         grid-template-columns: 1fr 1fr;
-        //padding: 0 70px; 
-        margin-left: 40px;
+        margin-left: 80px;
     }
     .projects {
         margin: 40px 60px;
